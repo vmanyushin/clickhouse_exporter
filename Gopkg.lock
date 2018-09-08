@@ -18,6 +18,22 @@
   version = "v1.2.0"
 
 [[projects]]
+  digest = "1:f02dbf2124e5dfb5305a6c3c8957a41d54a89d2a3ef60f030769f86e7851d5f5"
+  name = "github.com/kshvakov/clickhouse"
+  packages = [
+    ".",
+    "lib/binary",
+    "lib/column",
+    "lib/data",
+    "lib/protocol",
+    "lib/types",
+    "lib/writebuffer",
+  ]
+  pruneopts = "UT"
+  revision = "aeedb7b9d0584f393905447021238b5c6e9c5154"
+  version = "v1.3.4"
+
+[[projects]]
   digest = "1:ff5ebae34cfbf047d505ee150de27e60570e8c394b3b8fdbb720ff6ac71985fc"
   name = "github.com/matttproud/golang_protobuf_extensions"
   packages = ["pbutil"]
@@ -72,6 +88,10 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/prometheus/client_golang/prometheus/promhttp"]
+  input-imports = [
+    "github.com/kshvakov/clickhouse",
+    "github.com/prometheus/client_golang/prometheus",
+    "github.com/prometheus/client_golang/prometheus/promhttp",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
