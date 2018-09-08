@@ -49,6 +49,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(*bind, nil))
 }
 
+// NewExporter create new struct with prometheus descriptors
 func NewExporter(dsn string, timeout time.Duration) *Exporter {
 	return &Exporter{
 		dsn:     dsn,
@@ -62,8 +63,7 @@ func NewExporter(dsn string, timeout time.Duration) *Exporter {
 	}
 }
 
-// Each and every collector must implement the Describe function.
-// It essentially writes all descriptors to the prometheus desc channel.
+// Describe write all metric descriptors to the prometheus desc channel.
 func (exporter *Exporter) Describe(ch chan<- *prometheus.Desc) {
 
 	// Update this section with the each metric you create for a given collector
