@@ -7,7 +7,12 @@ BINARY_NAME=clickhouse_exporter
 BINARY_UNIX=$(BINARY_NAME)_unix
 VERSION ?= 1.0.0
 
-all: test build
+all: dep test build
+dep:
+ifeq (, $(shell which dep))
+	$(shell go get -u github.com/golang/dep/cmd/dep)
+endif
+	dep ensure
 build:
 	$(GOBUILD) -o bin/$(BINARY_NAME) -v
 test:
