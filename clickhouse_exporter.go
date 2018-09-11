@@ -90,5 +90,5 @@ func (exporter *Exporter) Collect(ch chan<- prometheus.Metric) {
 
 	// Write latest value for each metric in the prometheus metric channel.
 	// Note that you can pass CounterValue, GaugeValue, or UntypedValue types here.
-	ch <- prometheus.MustNewConstMetric(exporter.version, prometheus.GaugeValue, 1, "18.6.0")
+	ch <- prometheus.MustNewConstMetric(exporter.version, prometheus.GaugeValue, 1, version)
 }
